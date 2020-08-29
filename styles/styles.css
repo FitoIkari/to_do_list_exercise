@@ -1,0 +1,90 @@
+*, *:after, *:before {
+    box-sizing: border-box;
+}
+
+div.right {
+    text-align: right;
+}
+
+.task-box {
+    height: 50%;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 3px black solid;
+}
+
+.task-box * {
+    margin: 3px;
+}
+
+.task-title {
+    border-bottom: 1px lightgray solid;
+    padding: 3px;
+}
+
+.task-details {
+    margin-top: 3px;
+}
+
+.task-details label.detail-label {
+    display: block;
+}
+
+.color-box {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+}
+
+.color-selected {
+    border: 3px solid darkgray;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.green {
+    background-color: green;
+}
+
+.red {
+    background-color: red;
+}
+
+.task-container {
+    width: 50%;
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.task-card {
+    display: block;
+    border: 2px solid black;
+    height: 80px;
+    color: white;
+    border-radius: 15px;
+    padding: 5px;
+    margin-bottom: 3px;
+}
+
+.remaining-time {
+    color: white;
+}
+
+.card-details {
+    display: inline-block;
+    width: 90%;
+}
+
+.card-actions {
+    display: inline-block;
+}
+
+img {
+    height: 20px;
+    margin-top: 5px;
+    display: block;
+}

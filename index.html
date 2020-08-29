@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <title>To Do List</title>
+</head>
+<body>
+    <form id="task-form" action="" class="task-box">
+        <div class="task-title">
+            <input type="text" name="task-title" id="" placeholder="Task title">
+        </div>
+        <div class="task-details">
+            <label for="" class="detail-label">Type a Date</label>
+            <input type="datetime-local" name="task-date" id="">
+            <label for="task-description" class="detail-label">Description</label>
+            <input type="text" name="task-description" id="" placeholder="Task description">
+            <div class="color-picker">
+                <label class="color-box blue color-selected"></label>
+                <label class="color-box green"></label>
+                <label class="color-box red"></label>
+            </div>
+        </div>
+        <div class="right">
+            <button>Submit</button>
+        </div>
+    </form>
+    <div id="task-container" class="task-container"></div>
+
+    <script type="text/javascript" src="./scripts/TaskManager.js"></script>
+    <script type="text/javascript">
+        //let TaskContainer = new TaskManager(document.getElementById('task-container'));
+        let selectedColor = document.querySelector('.color-selected');
+
+        TaskManager.setContainer(document.getElementById('task-container'));
+        TaskManager.loadTasks();
+
+        document.getElementsByClassName('color-picker')[0].addEventListener('click', (event) => {
+            let target = event.target;
+            
+            if(target.nodeName !== 'LABEL')
+                return;
+
+            selectedColor.classList.remove('color-selected');
+            target.classList.add('color-selected');
+            selectedColor = target;
+        });
+
+        
+        document.getElementById('task-form').addEventListener('submit', event => {
+            event.preventDefault();
+            let formData = new FormData(event.target);
+            let taskResult;
+            let formDate = formData.get('task-date') ? new Date(formData.get('task-date')) : null;
+            let color = selectedColor.classList[1];
+            
+            
+            console.log(selectedColor.style.backgroundColor);
+            taskResult = TaskManager.newTask(formData.get('task-title'), formData.get('task-description'), formDate, color);
+            console.log(taskResult);
+        });
+        
+    </script>
+</body>
+</html>
